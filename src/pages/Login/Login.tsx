@@ -53,6 +53,7 @@ function Login() {
             {error && <p className="form-message" role="alert">{error}</p>}
             <button className="submit-button" type="submit">Sign in</button>
           </form>
+          <p className="preview-note"><a href="/dashboard-preview">Preview the client dashboard →</a></p>
           <p className="security-note">Authentication integration is coming next. Do not enter real credentials yet.</p>
         </div>
       </section>
