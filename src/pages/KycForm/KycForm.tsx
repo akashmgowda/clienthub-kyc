@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './KycForm.css';
 
 type KycData = {
@@ -49,7 +49,6 @@ function validateStep(step:number, data:KycData): string {
   return '';
 }
 export default function KycForm() {
-  const navigate = useNavigate();
   const [data,setData] = useState<KycData>(readDraft);
   const [step,setStep] = useState(0);
   const [message,setMessage] = useState('');
