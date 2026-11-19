@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
 type Status = 'Draft' | 'Pending Review' | 'Approved' | 'Needs Changes';
@@ -53,7 +54,7 @@ export default function Dashboard() {
           <article className="stat-card"><span>Needs changes</span><strong>{count('Needs Changes')}</strong><small>Action required</small></article>
         </section>
         <section className="clients-panel" aria-labelledby="clients-title">
-          <div className="panel-heading"><div><h2 id="clients-title">Client applications</h2><p>Search and filter onboarding records.</p></div><span className="results-count">{filtered.length} results</span></div>
+          <div className="panel-heading"><div><h2 id="clients-title">Client applications</h2><p>Search and filter onboarding records.</p></div><div style={{display:"flex",alignItems:"center",gap:16}}><span className="results-count">{filtered.length} results</span><Link to="/kyc/new" style={{background:"#1d4ed8",color:"white",borderRadius:8,padding:"11px 15px",fontSize:13,fontWeight:700,textDecoration:"none"}}>+ New KYC application</Link></div></div>
           <div className="table-controls">
             <label className="search-label">Search clients<input type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Name, email, company or ID" /></label>
             <label className="filter-label">Status<select value={filter} onChange={event => setFilter(event.target.value as Status | 'All')}>{statuses.map(status => <option key={status} value={status}>{status === 'All' ? 'All statuses' : status}</option>)}</select></label>
